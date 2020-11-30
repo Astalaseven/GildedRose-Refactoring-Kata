@@ -20,20 +20,18 @@ class GildedRose {
 
     private void update(final Item item) {
 
-        if (item.name.equals("Aged Brie")) {
-            new AgedBrieService().update(item);
-            return;
+        switch (item.name) {
+            case "Aged Brie":
+                new AgedBrieService().update(item);
+                break;
+            case "Backstage passes to a TAFKAL80ETC concert":
+                new BackstagePassService().update(item);
+                break;
+            case "Sulfuras, Hand of Ragnaros":
+                break;
+            default:
+                new CommonItemService().update(item);
+                break;
         }
-
-        if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            new BackstagePassService().update(item);
-            return;
-        }
-
-        if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-            return;
-        }
-
-        new CommonItemService().update(item);
     }
 }
