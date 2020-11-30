@@ -1,7 +1,9 @@
-package com.gildedrose;
+package com.gildedrose.item;
 
-import static com.gildedrose.ItemConstant.MAX_QUALITY;
-import static com.gildedrose.ItemConstant.MIN_QUALITY;
+import com.gildedrose.Item;
+
+import static com.gildedrose.item.constant.ItemConstant.MAX_QUALITY;
+import static com.gildedrose.item.constant.ItemConstant.MIN_QUALITY;
 
 public class ItemWrapper {
 

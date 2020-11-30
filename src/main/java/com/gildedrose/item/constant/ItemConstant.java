@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.gildedrose.item.constant;
 
 public class ItemConstant {
     public static int MAX_QUALITY = 50;

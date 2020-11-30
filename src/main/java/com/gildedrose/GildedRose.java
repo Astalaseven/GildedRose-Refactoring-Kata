@@ -1,5 +1,11 @@
 package com.gildedrose;
 
+import com.gildedrose.item.AgedBrieItem;
+import com.gildedrose.item.BackstagePassItem;
+import com.gildedrose.item.CommonItem;
+import com.gildedrose.item.NoOpItem;
+import com.gildedrose.item.api.ItemToUpdate;
+
 class GildedRose {
 
     private final Item[] items;
@@ -28,7 +34,7 @@ class GildedRose {
                 itemToUpdate = new BackstagePassItem(item);
                 break;
             case "Sulfuras, Hand of Ragnaros":
-                itemToUpdate = new NoOpItemToUpdate();
+                itemToUpdate = new NoOpItem();
                 break;
             default:
                 itemToUpdate = new CommonItem(item);
