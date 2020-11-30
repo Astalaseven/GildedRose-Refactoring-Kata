@@ -22,15 +22,15 @@ class GildedRose {
 
         switch (item.name) {
             case "Aged Brie":
-                new AgedBrieService().update(item);
+                new AgedBrieItem(item).update();
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
-                new BackstagePassService().update(item);
+                new BackstagePassItem(item).update();
                 break;
             case "Sulfuras, Hand of Ragnaros":
                 break;
             default:
-                new CommonItemService().update(item);
+                new CommonItem(item).update();
                 break;
         }
     }

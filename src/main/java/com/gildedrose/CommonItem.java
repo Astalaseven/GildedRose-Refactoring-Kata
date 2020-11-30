@@ -1,7 +1,13 @@
 package com.gildedrose;
 
-public class CommonItemService {
-    public void update(final Item item) {
+public class CommonItem {
+    private final Item item;
+
+    public CommonItem(final Item item) {
+        this.item = item;
+    }
+
+    public void update() {
         if (item.quality > 0) {
             item.quality = item.quality - 1;
         }

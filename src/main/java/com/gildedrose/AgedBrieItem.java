@@ -1,7 +1,13 @@
 package com.gildedrose;
 
-public class AgedBrieService {
-    public void update(final Item item) {
+public class AgedBrieItem {
+    private final Item item;
+
+    public AgedBrieItem(final Item item) {
+        this.item = item;
+    }
+
+    public void update() {
         if (item.quality < 50) {
             item.quality = item.quality + 1;
         }

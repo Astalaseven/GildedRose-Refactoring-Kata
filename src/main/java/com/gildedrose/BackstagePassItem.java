@@ -1,7 +1,13 @@
 package com.gildedrose;
 
-public class BackstagePassService {
-    public void update(final Item item) {
+public class BackstagePassItem {
+    private final Item item;
+
+    public BackstagePassItem(final Item item) {
+        this.item = item;
+    }
+
+    public void update() {
         if (item.quality < 50) {
             item.quality = item.quality + 1;
 
