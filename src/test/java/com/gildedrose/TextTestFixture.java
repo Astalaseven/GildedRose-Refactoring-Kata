@@ -38,7 +38,7 @@ public class TextTestFixture {
                 goldenMaster.append(System.lineSeparator());
             }
             goldenMaster.append(System.lineSeparator());
-            app.updateQuality();
+            app.update();
         }
 
         Files.write(Paths.get("GoldenMaster.txt"), goldenMaster.toString().getBytes());

@@ -41,7 +41,7 @@ public class GoldenMasterTest {
                 goldenMaster.append(System.lineSeparator());
             }
             goldenMaster.append(System.lineSeparator());
-            app.updateQuality();
+            app.update();
         }
 
         assertEquals(goldenMaster.toString(), Files.readString(Paths.get("GoldenMaster.txt")));
