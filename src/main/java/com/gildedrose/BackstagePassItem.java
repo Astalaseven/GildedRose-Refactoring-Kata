@@ -9,25 +9,31 @@ public class BackstagePassItem implements ItemToUpdate {
 
     public void update() {
         if (item.quality < 50) {
-            item.quality = item.quality + 1;
-
-            if (item.sellIn < 11) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
-            }
-
-            if (item.sellIn < 6) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
-            }
+            updateQuality();
         }
 
         item.sellIn = item.sellIn - 1;
 
         if (item.sellIn < 0) {
             item.quality = 0;
+        }
+    }
+
+    private void updateQuality() {
+        upgradeQuality();
+
+        if (item.sellIn < 11) {
+            upgradeQuality();
+        }
+
+        if (item.sellIn < 6) {
+            upgradeQuality();
+        }
+    }
+
+    private void upgradeQuality() {
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
         }
     }
 }
