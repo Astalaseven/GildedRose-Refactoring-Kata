@@ -21,6 +21,10 @@ public class ItemWrapper {
         return item.quality;
     }
 
+    public boolean sellInIsPassed() {
+        return this.item.sellIn < 0;
+    }
+
     public void improveQuality() {
         if (getQuality() < MAX_QUALITY) {
             this.item.quality += 1;
@@ -39,9 +43,5 @@ public class ItemWrapper {
 
     public void decreaseSellIn() {
         this.item.sellIn -= 1;
-    }
-
-    public boolean sellInIsPassed() {
-        return this.item.sellIn < 0;
     }
 }
