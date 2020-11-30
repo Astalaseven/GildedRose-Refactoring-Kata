@@ -1,23 +1,18 @@
 package com.gildedrose;
 
-public class CommonItem implements ItemToUpdate {
-    private final Item item;
+public class CommonItem extends ItemWrapper implements ItemToUpdate {
 
     public CommonItem(final Item item) {
-        this.item = item;
+        super(item);
     }
 
     public void update() {
-        if (item.quality > 0) {
-            item.quality = item.quality - 1;
-        }
+        decreaseQuality();
 
-        item.sellIn = item.sellIn - 1;
+        decreaseSellIn();
 
-        if (item.sellIn < 0) {
-            if (item.quality > 0) {
-                item.quality = item.quality - 1;
-            }
+        if (sellInIsPassed()) {
+            decreaseQuality();
         }
     }
 }

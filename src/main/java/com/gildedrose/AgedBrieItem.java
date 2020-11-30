@@ -1,23 +1,18 @@
 package com.gildedrose;
 
-public class AgedBrieItem implements ItemToUpdate {
-    private final Item item;
+public class AgedBrieItem extends ItemWrapper implements ItemToUpdate {
 
     public AgedBrieItem(final Item item) {
-        this.item = item;
+        super(item);
     }
 
     public void update() {
-        if (item.quality < 50) {
-            item.quality = item.quality + 1;
-        }
+        improveQuality();
 
-        item.sellIn = item.sellIn - 1;
+        decreaseSellIn();
 
-        if (item.sellIn < 0) {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
-            }
+        if (sellInIsPassed()) {
+            improveQuality();
         }
     }
 }

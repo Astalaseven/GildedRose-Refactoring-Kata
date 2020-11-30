@@ -22,7 +22,7 @@ class GildedRose {
         ItemToUpdate itemToUpdate;
         switch (item.name) {
             case "Aged Brie":
-                itemToUpdate = new AgedBrieItemToUpdate(item);
+                itemToUpdate = new AgedBrieItem(item);
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
                 itemToUpdate = new BackstagePassItem(item);

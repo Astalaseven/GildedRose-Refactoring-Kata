@@ -1,39 +1,33 @@
 package com.gildedrose;
 
-public class BackstagePassItem implements ItemToUpdate {
-    private final Item item;
+public class BackstagePassItem extends ItemWrapper implements ItemToUpdate {
+
+    public static final int FIRST_DEADLINE = 10;
+    public static final int SECOND_DEADLINE = 5;
 
     public BackstagePassItem(final Item item) {
-        this.item = item;
+        super(item);
     }
 
     public void update() {
-        if (item.quality < 50) {
-            updateQuality();
-        }
+        updateQuality();
 
-        item.sellIn = item.sellIn - 1;
+        decreaseSellIn();
 
-        if (item.sellIn < 0) {
-            item.quality = 0;
+        if (sellInIsPassed()) {
+            resetQuality();
         }
     }
 
     private void updateQuality() {
-        upgradeQuality();
+        improveQuality();
 
-        if (item.sellIn < 11) {
-            upgradeQuality();
+        if (getSellIn() <= FIRST_DEADLINE) {
+            improveQuality();
         }
 
-        if (item.sellIn < 6) {
-            upgradeQuality();
-        }
-    }
-
-    private void upgradeQuality() {
-        if (item.quality < 50) {
-            item.quality = item.quality + 1;
+        if (getSellIn() <= SECOND_DEADLINE) {
+            improveQuality();
         }
     }
 }
