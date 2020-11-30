@@ -27,7 +27,7 @@ public class GoldenMasterTest {
 
         GildedRose app = new GildedRose(items);
 
-        int days = 2;
+        int days = 30;
 
         StringBuilder goldenMaster = new StringBuilder();
 
