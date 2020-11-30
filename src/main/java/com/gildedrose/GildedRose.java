@@ -19,19 +19,21 @@ class GildedRose {
     }
 
     private void update(final Item item) {
-
+        ItemToUpdate itemToUpdate;
         switch (item.name) {
             case "Aged Brie":
-                new AgedBrieItem(item).update();
+                itemToUpdate = new AgedBrieItemToUpdate(item);
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
-                new BackstagePassItem(item).update();
+                itemToUpdate = new BackstagePassItem(item);
                 break;
             case "Sulfuras, Hand of Ragnaros":
+                itemToUpdate = new NoOpItemToUpdate();
                 break;
             default:
-                new CommonItem(item).update();
+                itemToUpdate = new CommonItem(item);
                 break;
         }
+        itemToUpdate.update();
     }
 }

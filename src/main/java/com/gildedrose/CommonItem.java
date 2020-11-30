@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class CommonItem {
+public class CommonItem implements ItemToUpdate {
     private final Item item;
 
     public CommonItem(final Item item) {
