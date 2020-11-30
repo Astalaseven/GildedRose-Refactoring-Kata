@@ -1,9 +1,9 @@
 package com.gildedrose;
 
-public class AgedBrieItemToUpdate implements ItemToUpdate {
+public class AgedBrieItem implements ItemToUpdate {
     private final Item item;
 
-    public AgedBrieItemToUpdate(final Item item) {
+    public AgedBrieItem(final Item item) {
         this.item = item;
     }
 
