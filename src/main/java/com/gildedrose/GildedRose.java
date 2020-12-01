@@ -1,17 +1,16 @@
 package com.gildedrose;
 
-import com.gildedrose.item.AgedBrieItem;
-import com.gildedrose.item.BackstagePassItem;
-import com.gildedrose.item.CommonItem;
-import com.gildedrose.item.NoOpItem;
 import com.gildedrose.item.api.ItemToUpdate;
 
 class GildedRose {
 
     private final Item[] items;
 
-    public GildedRose(Item[] items) {
+    private final ItemToUpdateFactory itemToUpdateFactory;
+
+    public GildedRose(final Item[] items) {
         this.items = items;
+        this.itemToUpdateFactory = new ItemToUpdateFactory();
     }
 
     public Item[] getItems() {
@@ -25,21 +24,7 @@ class GildedRose {
     }
 
     private void update(final Item item) {
-        ItemToUpdate itemToUpdate;
-        switch (item.name) {
-            case "Aged Brie":
-                itemToUpdate = new AgedBrieItem(item);
-                break;
-            case "Backstage passes to a TAFKAL80ETC concert":
-                itemToUpdate = new BackstagePassItem(item);
-                break;
-            case "Sulfuras, Hand of Ragnaros":
-                itemToUpdate = new NoOpItem();
-                break;
-            default:
-                itemToUpdate = new CommonItem(item);
-                break;
-        }
+        final ItemToUpdate itemToUpdate = itemToUpdateFactory.create(item);
         itemToUpdate.update();
     }
 }
